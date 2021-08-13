@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import "./App.css"
 import axios from "axios"
-import { response } from "msw"
+import DetailsForChar from "./components/Details"
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -20,10 +20,10 @@ const App = () => {
   // Fetch characters from the API in an effect hook. Remember, anytime you have a
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
-  const [character, setCharacters] = useState([])
+  const [character, setCharacters] = useState(null)
   useEffect(() => {
     axios("https://swapi.dev/api/people").then((response) => {
-      console.log(response)
+      console.log(response.data)
       setCharacters(response.data[0])
     })
   }, [])
@@ -31,6 +31,8 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">Characters working</h1>
+      <DetailsForChar user={user} />
+      {character && <DetailsForChar user={character} />}
     </div>
   )
 }

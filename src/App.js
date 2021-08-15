@@ -30,12 +30,14 @@ const App = () => {
   // sync up with, if any.
   const [character, setCharacters] = useState([])
 
-  const openDetails = (id) => {
-    setCharacters(id)
-  }
-  const closeDetails = () => {
-    setCharacters(null)
-  }
+  //helper functions not finished
+  //The following helper functions were made to display character details but they aren't required for this sprint challenge
+  // const openDetails = (id) => {
+  //   setCharacters(id)
+  // }
+  // const closeDetails = () => {
+  //   setCharacters(null)
+  // }
 
   useEffect(() => {
     const getData = axios("https://swapi.dev/api/people")
@@ -46,10 +48,6 @@ const App = () => {
       .catch((err) => {
         console.error(err)
       })
-
-    const { name, mass } = user
-    console.log(name)
-    console.log(mass)
   }, [])
 
   const StyledDetails = styled.div`

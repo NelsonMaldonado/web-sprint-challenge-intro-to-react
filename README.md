@@ -80,7 +80,19 @@ After finishing your required elements, you can push your work further. These go
 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
-1. What is React JS and what problems does it solve? Support your answer with concepts introduced in class and from your personal research on the web.
-1. Describe component state.
-1. Describe props.
-1. What are side effects, and how do you sync effects in a React component to changes of certain state or props?
+1. What is React JS and what problems does it solve?
+
+React JS is UI component library, built by Facebook to help solve complex state problems. React JS solves the problem of having too much data without bogging down the actual DOM. React is not a framework, react is a library that renders UI really well. In addition, since React is made of components, React is scalable and resuable. For example, when I was learning about components one of our training kit lessons taught us how to create a button with a component, this made creating addition buttons effortless. Another great example of scalability is using Styled Components. This allow us to change theme colors instantly no matter how much our web applications grow.
+
+Support your answer with concepts introduced in class and from your personal research on the web.
+
+2. Describe component state.
+
+   Is something that allows you to store value and change over time.
+
+3. Describe props.
+
+   Props (properties) are objects arguments with data that are passed to a React component.
+
+4. What are side effects, and how do you sync effects in a React component to changes of certain state or props?
+   A side effect in React is anything that affects something outside of the function being executed. There are two categories of side effects, those that require cleanup and those that don't require cleanup.

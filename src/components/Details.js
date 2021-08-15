@@ -10,19 +10,33 @@ const StyledDetails = styled.div`
   border-radius: 10px;
   background-color: ${(pr) => pr.theme.primaryColor};
 `
+const StyledCharacters = styled.div`
+  margin: auto;
+  width: 70%;
+  padding-top: 20px;
+  border: 1px solid black;
+  transition: all 0.05s ease-in-out;
+  &:hover {
+    backgroud-color: ${(pr) => pr.theme.secondaryColor};
+    color: black;
+  }
+`
 
 const DetailsForChar = (props) => {
-  const { user } = props
+  const { character } = props
   return (
     <StyledDetails>
-      <h2>{user.name}</h2>
-      <p>{user.gender}</p>
+      {character.map((char, key) => {
+        console.log(key)
+        return <StyledCharacters>{char.name}</StyledCharacters>
+      })}
+      {/* <p>{user.gender}</p>
       <p>{user.height}</p>
       <p>{user.mass}</p>
       <p>{user.birth_year}</p>
       <p>{user.eye_color}</p>
       <p>{user.hair_color}</p>
-      <p>{user.skin_color}</p>
+      <p>{user.skin_color}</p> */}
     </StyledDetails>
   )
 }

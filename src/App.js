@@ -3,8 +3,14 @@ import "./App.css"
 import axios from "axios"
 import DetailsForChar from "./components/Details"
 import Character from "./components/Character"
-import { ThemeProvider } from "styled-components"
+import styled from "styled-components"
 import theme from "./theme"
+import { ThemeProvider } from "styled-components"
+const StyledApp = styled.div`
+color: ${(pr) => pr.theme.primaryColor},
+background-color: ${(pr) => pr.theme.white}
+`
+
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
@@ -32,7 +38,7 @@ const App = () => {
   }
 
   useEffect(() => {
-    axios("https://swapi.dev/api/people")
+    const getData = axios("https://swapi.dev/api/people")
       .then((res) => {
         setCharacters(res.data)
         console.log(`Here's your response`, character)
@@ -48,10 +54,15 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Characters</h1>
+      <StyledApp>
+        <h1>Characters</h1>
+      </StyledApp>
+
       <div>
-        <Character character={character} />
-        <DetailsForChar user={user} />
+        {character.map((character, key) => (
+          <Character character={character} key={key} />
+        ))}
+        {/* <DetailsForChar character={character} /> */}
       </div>
     </div>
   )

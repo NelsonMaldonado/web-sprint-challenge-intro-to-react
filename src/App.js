@@ -52,18 +52,43 @@ const App = () => {
     console.log(mass)
   }, [])
 
+  const StyledDetails = styled.div`
+    margin: auto;
+    color: white;
+    font-size: 10px;
+    width: 60%;
+    flex-direction: column;
+    padding: 10px 0 10px 0;
+    border-radius: 10px;
+    background-color: ${(pr) => pr.theme.primaryColor};
+  `
+  const StyledCharacters = styled.div`
+    margin: auto;
+
+    width: 70%;
+    padding-top: 20px;
+    border: 1px solid black;
+    transition: all 0.05s ease-in-out;
+    &:hover {
+      backgroud-color: ${(pr) => pr.theme.secondaryColor};
+      color: black;
+    }
+  `
+
   return (
     <div className="App">
       <StyledApp>
         <h1>Characters</h1>
       </StyledApp>
 
-      <div>
+      <StyledDetails>
         {character.map((character, key) => (
-          <Character character={character} key={key} />
+          <StyledCharacters>
+            <Character character={character} key={key} />
+          </StyledCharacters>
         ))}
         {/* <DetailsForChar character={character} /> */}
-      </div>
+      </StyledDetails>
     </div>
   )
 }
